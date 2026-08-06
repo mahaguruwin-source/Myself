@@ -130,7 +130,7 @@ export default function Hero() {
     alt=""
     className="rounded-[30px]"
   />
-</div>git
+</div>
 </div>
 </div>
       </div>
