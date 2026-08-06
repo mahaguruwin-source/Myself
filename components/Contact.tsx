@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen bg-white px-6 py-20 lg:px-16"
+      className="min-h-screen bg-white px-5 py-20 lg:px-16"
     >
       <div className="mx-auto max-w-5xl">
         {/* Heading */}
@@ -27,17 +27,17 @@ export default function Contact() {
           I'd love to hear from you.
         </p>
 
-        <div className="mt-14 rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm">
+        <div className="mt-5 lg:mt-14 rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm">
           <div className="grid gap-8 md:grid-cols-2">
             {/* Left */}
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <FaEnvelope className="text-xl text-black" />
+                <FaEnvelope className="text-sm lg:text-xl text-black" />
                 <div>
                   <p className="text-sm text-zinc-500">Email</p>
                   <a
                     href="mailto:mahaguru63@gmail.com"
-                    className="text-lg font-medium text-black hover:underline"
+                    className="text-md lg:text-lg font-medium text-black hover:underline"
                   >
                    mahaguru63@gmail.com
                   </a>
@@ -48,7 +48,7 @@ export default function Contact() {
                 <FaPhoneAlt className="text-xl text-black" />
                 <div>
                   <p className="text-sm text-zinc-500">Phone</p>
-                  <p className="text-lg font-medium text-black">
+                  <p className="text-md lg:text-lg font-medium text-black">
                     +91 9790987168
                   </p>
                 </div>
@@ -58,7 +58,7 @@ export default function Contact() {
                 <FaMapMarkerAlt className="text-xl text-black" />
                 <div>
                   <p className="text-sm text-zinc-500">Location</p>
-                  <p className="text-lg font-medium text-black">
+                  <p className="text-md lg:text-lg font-medium text-black">
                     Chennai, India
                   </p>
                 </div>
@@ -67,7 +67,7 @@ export default function Contact() {
 
             {/* Right */}
             <div className="flex flex-col justify-center">
-              <h3 className="font-[family:var(--font-space)] text-2xl font-semibold text-black">
+              <h3 className="font-[family:var(--font-space)] text-[18px] lg:text-2xl font-semibold text-black">
                 Connect With Me
               </h3>
 

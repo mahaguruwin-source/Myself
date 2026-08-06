@@ -45,7 +45,7 @@ export default function Skills() {
   return (
     <section
       id="sec2"
-      className="min-h-screen bg-white px-6 py-20 lg:px-16"
+      className="min-h-screen bg-white px-5 py-5 lg:px-16"
     >
       <div className="mx-auto max-w-6xl">
         <p className="text-sm font-medium uppercase tracking-[0.3em] text-zinc-500">
@@ -62,7 +62,7 @@ export default function Skills() {
           experiences.
         </p>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2">
+        <div className="mt-5 lg:mt-14 grid gap-5 lg:gap-8 md:grid-cols-2">
           {skillGroups.map((group) => (
             <div
               key={group.title}

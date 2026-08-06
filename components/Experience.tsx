@@ -6,12 +6,7 @@ export default function Experience() {
       duration: "2022 - Present",
       description:
         "Building modern, responsive web applications using React, Next.js, TypeScript, and Tailwind CSS. Focused on creating scalable frontend solutions, CMS integrations, and delivering seamless user experiences.",
-      skills: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-      ],
+      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     },
     {
       role: "Web Developer",
@@ -19,13 +14,7 @@ export default function Experience() {
       duration: "2020 - 2022",
       description:
         "Developed and maintained multiple websites using WordPress and Elementor. Worked on website customization, responsive layouts, performance improvements, and ongoing website maintenance using HTML, CSS, and JavaScript.",
-      skills: [
-        "WordPress",
-        "Elementor",
-        "HTML",
-        "CSS",
-        "JavaScript",
-      ],
+      skills: ["WordPress", "Elementor", "HTML", "CSS", "JavaScript"],
     },
     {
       role: "Junior Web Developer",
@@ -33,12 +22,7 @@ export default function Experience() {
       duration: "2015 - 2018",
       description:
         "Started my web development journey by creating and maintaining websites. Worked on WordPress customization, frontend development, and building responsive web pages using modern web technologies.",
-      skills: [
-        "WordPress",
-        "HTML",
-        "CSS",
-        "JavaScript",
-      ],
+      skills: ["WordPress", "HTML", "CSS", "JavaScript"],
     },
   ];
 
@@ -61,18 +45,19 @@ export default function Experience() {
           websites to creating modern scalable applications.
         </p>
 
-        <div className="relative mt-14 space-y-10 border-l border-zinc-200 pl-8">
+        {/* Timeline */}
+        <div className="relative mt-8 space-y-8 border-l-2 border-zinc-200 pl-6 lg:mt-14 lg:space-y-10 lg:pl-8">
           {experiences.map((exp) => (
             <div
               key={`${exp.company}-${exp.role}`}
-              className="relative rounded-2xl border border-zinc-200 bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="relative rounded-2xl border border-zinc-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl lg:p-8"
             >
               {/* Timeline Dot */}
-              <span className="absolute -left-[43px] top-10 h-5 w-5 rounded-full border-4 border-white bg-black shadow" />
+              <span className="absolute -left-[34px] top-8 h-4 w-4 rounded-full border-4 border-white bg-black shadow lg:-left-[43px] lg:top-10 lg:h-5 lg:w-5" />
 
               <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
                 <div>
-                  <h3 className="font-(--font-space) text-2xl font-semibold text-black">
+                  <h3 className="font-(--font-space) text-xl font-semibold text-black lg:text-2xl">
                     {exp.role}
                   </h3>
 
