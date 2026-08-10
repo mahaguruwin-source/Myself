@@ -1,3 +1,4 @@
+
 export default function Experience() {
   const experiences = [
     {
@@ -5,7 +6,7 @@ export default function Experience() {
       company: "Current Company",
       duration: "2022 - Present",
       description:
-        "Building modern, responsive web applications using React, Next.js, TypeScript, and Tailwind CSS. Focused on creating scalable frontend solutions, CMS integrations, and delivering seamless user experiences.",
+        "Building modern, responsive web applications using React, Next.js, TypeScript, and Tailwind CSS. Focused on scalable frontend solutions, CMS integrations, and seamless user experiences.",
       skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     },
     {
@@ -13,7 +14,7 @@ export default function Experience() {
       company: "iTech India Private Limited",
       duration: "2020 - 2022",
       description:
-        "Developed and maintained multiple websites using WordPress and Elementor. Worked on website customization, responsive layouts, performance improvements, and ongoing website maintenance using HTML, CSS, and JavaScript.",
+        "Developed and maintained multiple websites using WordPress and Elementor. Worked on website customization, responsive layouts, performance improvements, and ongoing website maintenance.",
       skills: ["WordPress", "Elementor", "HTML", "CSS", "JavaScript"],
     },
     {
@@ -21,65 +22,73 @@ export default function Experience() {
       company: "iTech India Private Limited",
       duration: "2015 - 2018",
       description:
-        "Started my web development journey by creating and maintaining websites. Worked on WordPress customization, frontend development, and building responsive web pages using modern web technologies.",
+        "Started my web development journey by creating and maintaining websites. Worked on WordPress customization, frontend development, and building responsive web pages.",
       skills: ["WordPress", "HTML", "CSS", "JavaScript"],
     },
   ];
 
   return (
-    <section
+  <section
       id="sec3"
-      className="min-h-screen bg-white px-6 py-20 lg:px-16"
+      className="min-h-screen bg-white px-5 py-5 lg:px-16"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Heading */}
+       
         <p className="text-sm font-medium uppercase tracking-[0.3em] text-zinc-500">
-          Experience
-        </p>
+            Experience
+          </p>
 
-        <h2 className="mt-3 font-(--font-space) text-4xl font-bold text-black">
-          My Professional Journey
-        </h2>
+          <h2 className="mt-3 font-(--font-space) text-4xl font-bold text-black lg:text-5xl">
+            My Professional Journey
+          </h2>
 
-        <p className="mt-4 max-w-2xl text-lg text-zinc-600">
-          A journey through web development, from building and maintaining
-          websites to creating modern scalable applications.
-        </p>
+          <p className="mx-auto  mt-4  text-lg leading-8 text-zinc-600">
+            A journey through web development, from building and maintaining
+            websites to creating modern scalable applications.
+          </p>
+      
 
-        {/* Timeline */}
-        <div className="relative mt-8 space-y-8 border-l-2 border-zinc-200 pl-6 lg:mt-14 lg:space-y-10 lg:pl-8">
-          {experiences.map((exp) => (
+        {/* Experience Cards */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+          {experiences.map((exp, index) => (
             <div
               key={`${exp.company}-${exp.role}`}
-              className="relative rounded-2xl border border-zinc-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl lg:p-8"
+              className="group flex h-full flex-col rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-black hover:shadow-xl lg:p-7"
             >
-              {/* Timeline Dot */}
-              <span className="absolute -left-[34px] top-8 h-4 w-4 rounded-full border-4 border-white bg-black shadow lg:-left-[43px] lg:top-10 lg:h-5 lg:w-5" />
+              {/* Card Number */}
+              <div className="flex items-center justify-between">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-sm font-semibold text-white">
+                  0{index + 1}
+                </span>
 
-              <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-                <div>
-                  <h3 className="font-(--font-space) text-xl font-semibold text-black lg:text-2xl">
-                    {exp.role}
-                  </h3>
-
-                  <p className="mt-1 text-zinc-600">
-                    {exp.company}
-                  </p>
-                </div>
-
-                <span className="rounded-full bg-zinc-100 px-4 py-1 text-sm font-medium text-zinc-700">
+                <span className="rounded-full bg-zinc-100 px-4 py-1.5 text-xs font-medium text-zinc-700">
                   {exp.duration}
                 </span>
               </div>
 
-              <p className="mt-5 leading-7 text-zinc-600">
+              {/* Role */}
+              <div className="mt-7">
+                <h3 className="font-(--font-space) text-xl font-bold text-black lg:text-2xl">
+                  {exp.role}
+                </h3>
+
+                <p className="mt-2 text-sm font-medium text-zinc-500">
+                  {exp.company}
+                </p>
+              </div>
+
+              {/* Description */}
+              <p className="mt-5 flex-1 text-sm leading-7 text-zinc-600">
                 {exp.description}
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-3">
+              {/* Skills */}
+              <div className="mt-7 flex flex-wrap gap-2">
                 {exp.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-700 transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
+                    className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-xs font-medium text-zinc-700 transition-all duration-300 group-hover:border-zinc-300"
                   >
                     {skill}
                   </span>

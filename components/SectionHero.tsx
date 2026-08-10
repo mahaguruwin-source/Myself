@@ -1,23 +1,53 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import {
-  FaGithub,
   FaLinkedin,
   FaEnvelope,
 } from "react-icons/fa";
 
 export default function Hero() {
+  const text = "Hello, I'm";
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const speed = isDeleting ? 70 : 120;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        setDisplayText(text.slice(0, displayText.length + 1));
+
+        if (displayText.length === text.length) {
+          setTimeout(() => setIsDeleting(true), 1200);
+        }
+      } else {
+        setDisplayText(text.slice(0, displayText.length - 1));
+
+        if (displayText.length === 0) {
+          setIsDeleting(false);
+        }
+      }
+    }, speed);
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting]);
+
   return (
-    <section
-      id="sec1"
-      className="min-h-screen flex items-center bg-white px-5 py-10 font-[family:var(--font-inter)] sm:px-8 lg:px-16 lg:py-16"
-    >
-      <div className="mx-auto flex w-full max-w-7xl flex-col-reverse items-center justify-between gap-8 lg:flex-row lg:gap-14">
-        {/* Left Content */}
-        <div className="max-w-3xl text-center lg:text-left">
-          {/* Badge */}
-          <span className="inline-flex items-center rounded-full border border-zinc-300 bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-700 sm:px-4 sm:py-2 sm:text-sm">
-            👋 Hello, I'm
-          </span>
+    <section className="min-h-screen bg-white px-6 py-16 lg:px-12" id="sec1">
+      <div className="mx-auto grid min-h-[calc(100vh-100px)] max-w-7xl items-center gap-12 lg:grid-cols-2">
+
+        {/* ================= LEFT CONTENT ================= */}
+        <div className="text-center lg:text-left">
+
+          {/* Animated Hello */}
+          <div className="inline-flex items-center rounded-md bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-700">
+            <span>{displayText}</span>
+
+            {/* Blinking Cursor */}
+            <span className="ml-1 h-4 w-[2px] animate-pulse bg-black" />
+          </div>
 
           {/* Name */}
           <h1 className="mt-4 font-[family:var(--font-space)] text-3xl font-bold leading-tight tracking-tight text-black sm:text-5xl lg:mt-6 lg:text-7xl">
@@ -29,23 +59,15 @@ export default function Hero() {
             Senior Web Developer
           </h2>
 
-         {/* Description */}
-<p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600 sm:text-lg lg:mt-6 lg:leading-8">
-  {/* Mobile */}
-  <span className="block md:hidden">
-    Building modern, fast, and accessible web experiences with React,
-    Next.js, and TypeScript.
-  </span>
-
-  {/* Tablet & Desktop */}
-  <span className="hidden md:block">
-    I'm a Senior Web Developer with over 4 years of experience building
-    responsive, high-performance web applications using React, Next.js,
-    TypeScript, and Tailwind CSS. I also have extensive experience with
-    WordPress and Elementor, creating scalable websites with clean UI,
-    strong performance, and an excellent user experience.
-  </span>
-</p>
+          {/* Description */}
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-zinc-600 sm:text-base lg:mx-0 lg:mt-6 lg:text-lg">
+            I'm a Senior Web Developer with over 4 years of experience
+            building responsive, high-performance web applications using
+            React, Next.js, TypeScript, and Tailwind CSS. I also have
+            extensive experience with WordPress and Elementor, creating
+            scalable websites with clean UI, strong performance, and an
+            excellent user experience.
+          </p>
 
           {/* Tech Stack */}
           <div className="mt-6 flex flex-wrap justify-center gap-2 lg:mt-8 lg:justify-start lg:gap-3">
@@ -85,8 +107,6 @@ export default function Hero() {
 
           {/* Social Icons */}
           <div className="mt-8 flex justify-center gap-5 lg:mt-10 lg:justify-start lg:gap-6">
-      
-
             <a
               href="https://www.linkedin.com/in/maha-lakshmi-g/"
               target="_blank"
@@ -95,7 +115,7 @@ export default function Hero() {
             >
               <FaLinkedin
                 size={22}
-                className="text-zinc-500 hover:text-black"
+                className="text-zinc-500 transition-colors hover:text-black"
               />
             </a>
 
@@ -105,34 +125,41 @@ export default function Hero() {
             >
               <FaEnvelope
                 size={22}
-                className="text-zinc-500 hover:text-black"
+                className="text-zinc-500 transition-colors hover:text-black"
               />
             </a>
           </div>
         </div>
 
-        {/* Right Image */}
-     {/* Right Image */}
-<div className="relative mb-4 flex justify-center lg:mb-0">
-  {/* Background Circle */}
-  <div className="absolute h-36 w-36 rounded-full bg-zinc-100 blur-2xl sm:h-48 sm:w-48 lg:h-80 lg:w-80"></div>
+        {/* ================= RIGHT IMAGE ================= */}
+        <div className="relative flex items-center justify-center">
 
-<div className="relative">
-  {/* Glow */}
-  <div className="absolute inset-0 rounded-full bg-zinc-200 blur-3xl opacity-50"></div>
+          {/* Floating Ring */}
+          <div className="absolute h-[280px] w-[280px] animate-[spin_12s_linear_infinite] rounded-full border border-zinc-300 sm:h-[360px] sm:w-[360px] lg:h-[450px] lg:w-[450px]" />
 
-  {/* Floating Ring */}
-<div className="rounded-[40px] bg-zinc-100 p-5 shadow-xl">
-  <Image
-    src="/images/maha-logo.png"
-    width={300}
-    height={380}
-    alt=""
-    className="rounded-[30px]"
-  />
-</div>
-</div>
-</div>
+          {/* Second subtle ring */}
+          <div className="absolute h-[230px] w-[230px] animate-[spin_18s_linear_infinite_reverse] rounded-full border border-zinc-200 sm:h-[310px] sm:w-[310px] lg:h-[390px] lg:w-[390px]" />
+
+          {/* Image Container */}
+          <div className="relative z-10 flex h-[280px] w-[280px] items-center justify-center overflow-hidden rounded-full bg-zinc-100 sm:h-[360px] sm:w-[360px] lg:h-[420px] lg:w-[420px]">
+
+            <Image
+              src="/images/maha-logo.png"
+              alt="Mahalakshmi G"
+              width={420}
+              height={420}
+              className="h-full w-full object-cover"
+              priority
+            />
+
+          </div>
+
+          {/* Small Floating Dot */}
+          <span className="absolute right-[8%] top-[12%] z-20 h-4 w-4 animate-pulse rounded-full bg-black sm:h-5 sm:w-5" />
+
+          {/* Another Floating Dot */}
+          <span className="absolute bottom-[15%] left-[8%] z-20 h-3 w-3 animate-pulse rounded-full bg-zinc-400 sm:h-4 sm:w-4" />
+        </div>
       </div>
     </section>
   );

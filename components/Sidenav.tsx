@@ -84,7 +84,7 @@ export default function SideNav() {
 
       <div className="absolute bottom-8 hidden w-full px-6 lg:block">
         <p className="text-xs uppercase tracking-[0.3em] text-zinc-600">
-          Portfolio 2026
+         MAHALAKSHMI G
         </p>
       </div>
     </aside>
